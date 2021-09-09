@@ -81,3 +81,4 @@ function esquerda(){
   personagemObj.velocidadeX -= 1;
   
 }
+limpar();
