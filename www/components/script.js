@@ -16,6 +16,9 @@ document.querySelector('#Descer').addEventListener("click", function(){
 descer();
 setTimeout(parar, 1000);
 });
+document.querySelector('#reset').addEventListener("click", function(){
+reload();
+});
 }
 
 var personagemObj;
@@ -24,8 +27,8 @@ var pontos;
 
 function inicioJogo(){
 areaJogo.start();
-personagemObj = new componente("#C76EFF", 10, 120, 30, 30);
-pontos = new componente ("#FFF", 0, 290, 'Consolas', '30px', 'texto');
+personagemObj = new componente("#FFFF00", 10, 120, 30, 30);
+pontos = new componente ("#000000", 0, 290, 'Consolas', '30px', 'texto');
 }
 
 let areaJogo = {
@@ -146,6 +149,9 @@ personagemObj.velocidadeX -= 1;
 function parar (){
 personagemObj.velocidadeX = 0;
 personagemObj.velocidadeY = 0;
+}
+function reload(){
+  location.reload
 }
 
 function contarIntervalo(n){
