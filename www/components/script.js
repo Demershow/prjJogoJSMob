@@ -16,10 +16,27 @@ document.querySelector('#Descer').addEventListener("click", function(){
 descer();
 setTimeout(parar, 1000);
 });
-document.querySelector('#reset').addEventListener("click", function(){
-reload();
+
+document.querySelector('#cor').addEventListener("click", function(){
+document.querySelector('#Descer').style.color = "#000000"
+document.querySelector('#Subir').style.color = "#000000"
+document.querySelector('#Esquerda').style.color = "#000000"
+document.querySelector('#Direita').style.color = "#000000";
+document.querySelector('body').style.backgroundColor = "white";
+document.querySelector('canvas').style.backgroundColor = "white";
+});
+
+document.querySelector('#cor2').addEventListener("click", function(){
+document.querySelector('#Descer').style.color = "#DCDCDC"
+document.querySelector('#Subir').style.color = "#DCDCDC"
+document.querySelector('#Esquerda').style.color = "#DCDCDC"
+document.querySelector('#Direita').style.color = "#DCDCDC";
+document.querySelector('body').style.backgroundColor = "black";
+document.querySelector('canvas').style.backgroundColor = "black";
 });
 }
+
+
 
 var personagemObj;
 var obstaculo = [];
@@ -100,6 +117,7 @@ let x, y;
 for(i = 0; i < obstaculo.length; i++)
 {
 if(personagemObj.bater(obstaculo[i])){
+document.querySelector('canvas').style.backgroundImage = "url(https://i.pinimg.com/originals/3c/ed/ee/3cedee4f8118855c83ea05463498f326.gif)";
 areaJogo.parar();
 return;
 }
