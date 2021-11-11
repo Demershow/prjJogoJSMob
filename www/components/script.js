@@ -1,5 +1,24 @@
 window.onload = function(){
 inicioJogo();
+
+function config(){
+  let claro
+  canvas: "white",
+  body = "white"; 
+}
+
+localStorage.setItem("claro", JSON.stringify(claro));
+
+let escuro ={
+  canvas: "black",
+  body = "black"
+}
+
+localStorage.setItem("escuro", JSON.stringify(escuro));
+}
+
+config();
+
 document.querySelector('#Subir').addEventListener("click", function(){
 subir();
 setTimeout(parar, 1000);
@@ -17,24 +36,52 @@ descer();
 setTimeout(parar, 1000);
 });
 
-document.querySelector('#cor').addEventListener("click", function(){
-document.querySelector('#Descer').style.color = "#000000"
-document.querySelector('#Subir').style.color = "#000000"
-document.querySelector('#Esquerda').style.color = "#000000"
-document.querySelector('#Direita').style.color = "#000000";
-document.querySelector('body').style.backgroundColor = "white";
-document.querySelector('canvas').style.backgroundColor = "white";
-});
 
-document.querySelector('#cor2').addEventListener("click", function(){
-document.querySelector('#Descer').style.color = "#DCDCDC"
-document.querySelector('#Subir').style.color = "#DCDCDC"
-document.querySelector('#Esquerda').style.color = "#DCDCDC"
-document.querySelector('#Direita').style.color = "#DCDCDC";
-document.querySelector('body').style.backgroundColor = "black";
-document.querySelector('canvas').style.backgroundColor = "black";
-});
-}
+
+//document.querySelector('#cor').addEventListener("click", function(){
+//document.querySelector('#Descer').style.color = "#000000"
+//document.querySelector('#Subir').style.color = "#000000"
+//document.querySelector('#Esquerda').style.color = "#000000"
+//document.querySelector('#Direita').style.color = "#000000";
+//document.querySelector('body').style.backgroundColor = "white";
+//document.querySelector('canvas').style.backgroundColor = "white";
+//});
+
+//document.querySelector('#cor2').addEventListener("click", function(){
+//document.querySelector('#Descer').style.color = "#DCDCDC"
+//document.querySelector('#Subir').style.color = "#DCDCDC"
+//document.querySelector('#Esquerda').style.color = "#DCDCDC"
+//document.querySelector('#Direita').style.color = "#DCDCDC";
+//document.querySelector('body').style.backgroundColor = "black";
+//document.querySelector('canvas').style.backgroundColor = "black";
+//});
+//}
+
+ document.querySelector("#cor").addEventListener("click", function(){
+    let temas = JSON.parse(localStorage.getItem("claro"));
+    document.querySelector("canvas").style.backgroundImage = temas.canvas;
+    document.querySelector("body").style.backgroundColor = temas.body;
+
+    const botoes = document.querySelectorAll(".bao");
+
+    Array.prototype.filter.call(botoes, function(botoes){
+      botoes.style.color = temas.botoes;
+    });
+  });
+
+    document.querySelector("#cor2").addEventListener("click", function(){
+    let temas = JSON.parse(localStorage.getItem("escuro"));
+    document.querySelector("canvas").style.backgroundImage = temas.canvas;
+    document.querySelector("body").style.backgroundColor = temas.body;
+
+    const botoes = document.querySelectorAll(".bao");
+
+    Array.prototype.filter.call(botoes, function(botoes){
+      botoes.style.color = temas.botoes;
+    });
+  });
+
+
 
 
 
